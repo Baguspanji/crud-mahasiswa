@@ -8,7 +8,7 @@ import flash from 'connect-flash';
 import session from 'express-session';
 
 import indexRouter from './routes';
-import usersRouter from './routes/users';
+import authRouter from './routes/auth';
 import mahasiswaRouter from './routes/mahasiswa';
 
 import db from '../config/keys';
@@ -42,9 +42,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../public')));
 
+/**
+ * Basic Routing.
+ */
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/login', authRouter);
 app.use('/mahasiswa', mahasiswaRouter);
+
+/**
+ * End Basic Routing.
+ */
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
