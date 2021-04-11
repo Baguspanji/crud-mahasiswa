@@ -1,7 +1,5 @@
 import express from 'express';
 var router = express.Router();
-import mahasiswaController from '../controllers/mahasiswaController';
-
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

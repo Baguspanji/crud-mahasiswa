@@ -1,11 +1,9 @@
 import express from 'express';
-import jwt from 'jsonwebtoken';
-import authController from '../controllers/authController';
+import conn from '../controllers/authController';
 var router = express.Router();
 
-/* GET users listing. */
-router.post('/', authController.authUser);
+router.post('/login/', conn.authUser);
 
-router.post("/add", authController.addUser);
+router.post("/user/add", conn.addUser);
 
 export default router;

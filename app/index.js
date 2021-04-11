@@ -10,6 +10,7 @@ import session from 'express-session';
 import indexRouter from './routes';
 import authRouter from './routes/auth';
 import mahasiswaRouter from './routes/mahasiswa';
+import apiMahasiswaRouter from './routes/api/mahasiswa';
 
 import db from '../config/keys';
 
@@ -47,8 +48,9 @@ app.use(express.static(path.join(__dirname, '../public')));
  */
 
 app.use('/', indexRouter);
-app.use('/login', authRouter);
+app.use('/', authRouter);
 app.use('/mahasiswa', mahasiswaRouter);
+app.use('/api', apiMahasiswaRouter);
 
 /**
  * End Basic Routing.

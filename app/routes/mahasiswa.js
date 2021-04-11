@@ -1,14 +1,13 @@
 import express from 'express';
+import conn from '../controllers/mahasiswaController';
 var router = express.Router();
 
-import mahasiswaController from '../controllers/mahasiswaController';
+router.get("/", conn.viewMahasiswa);
 
-router.get("/", mahasiswaController.viewMahasiswa);
+router.get("/get_data", conn.resMahasiswa);
 
-router.get("/get_data", mahasiswaController.resMahasiswa);
-
-router.post("/", mahasiswaController.addMahasiswa);
-router.put("/", mahasiswaController.editMahasiswa);
-router.delete("/:id", mahasiswaController.deleteMahasiswa);
+router.post("/", conn.addMahasiswa);
+router.put("/", conn.editMahasiswa);
+router.delete("/:id", conn.deleteMahasiswa);
 
 export default router;

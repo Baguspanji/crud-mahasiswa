@@ -1,4 +1,4 @@
-import Mahasiswa from '../models/Mahasiswa';
+import Mahasiswa from '../models/mahasiswa';
 
 const data = {
     resMahasiswa: async(req, res) => {
